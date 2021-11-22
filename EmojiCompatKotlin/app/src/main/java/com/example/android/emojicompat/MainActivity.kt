@@ -17,7 +17,6 @@
 package com.example.android.emojicompat
 
 import android.os.Bundle
-import androidx.emoji.text.EmojiCompat
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.TextView
 import java.lang.ref.WeakReference
@@ -54,27 +53,10 @@ class MainActivity : AppCompatActivity() {
 
         // Regular TextView without EmojiCompat support; you have to manually process the text
         val regularTextView: TextView = findViewById(R.id.regular_text_view)
-        EmojiCompat.get().registerInitCallback(InitCallback(regularTextView))
 
         // Custom TextView
         val customTextView: TextView = findViewById(R.id.emoji_custom_text_view)
         customTextView.text = getString(R.string.custom_text_view, EMOJI)
-    }
-
-    private class InitCallback(regularTextView: TextView) : EmojiCompat.InitCallback() {
-
-        val regularTextViewRef = WeakReference(regularTextView)
-
-        override fun onInitialized() {
-            val regularTextView = regularTextViewRef.get()
-            if (regularTextView != null) {
-                val compat = EmojiCompat.get()
-                val context = regularTextView.context
-                regularTextView.text = compat.process(
-                        context.getString(R.string.regular_text_view, EMOJI))
-            }
-        }
-
     }
 
 }

@@ -30,11 +30,11 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 31
     defaultConfig {
         applicationId "com.example.android.emojicompat"
         minSdkVersion 19
-        targetSdkVersion 28
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -45,14 +45,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
-    // Support Libraries
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    implementation 'androidx.emoji:emoji:1.0.0'
-    implementation 'androidx.emoji:emoji-appcompat:1.0.0'
-    implementation 'androidx.emoji:emoji-bundled:1.0.0'
+    implementation 'androidx.work:work-runtime:2.4.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 
     // Test
@@ -60,4 +60,19 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-intents:3.1.1"
 
     testImplementation 'junit:junit:4.12'
+
+    def appcompat_version = "1.4.0-rc01"
+    implementation("androidx.appcompat:appcompat:$appcompat_version")
+    // For loading and tinting drawables on older versions of the platform
+    implementation("androidx.appcompat:appcompat-resources:$appcompat_version")
+    implementation("androidx.appcompat:appcompat-resources:$appcompat_version")
+
+    def emoji2_version = "1.0.0-beta01"
+    // Library required for loading emojis manually, see regular TextView sample
+    implementation("androidx.emoji2:emoji2:$emoji2_version")
+
+    // Used in Custom TextView
+    implementation("androidx.emoji2:emoji2-views-helper:$emoji2_version")
+
+    implementation 'androidx.core:core-ktx:1.2.0'
 }

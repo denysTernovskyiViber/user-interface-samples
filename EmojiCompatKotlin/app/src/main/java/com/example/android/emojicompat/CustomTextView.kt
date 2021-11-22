@@ -17,11 +17,10 @@
 package com.example.android.emojicompat
 
 import android.content.Context
-import androidx.emoji.widget.EmojiTextViewHelper
 import androidx.appcompat.widget.AppCompatTextView
 import android.text.InputFilter
 import android.util.AttributeSet
-
+import androidx.emoji2.viewsintegration.EmojiTextViewHelper
 
 /**
  * A sample implementation of custom TextView.

@@ -30,21 +30,21 @@
         android:orientation="vertical"
         android:padding="@dimen/spacing_normal">
 
-        <androidx.emoji.widget.EmojiAppCompatTextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/emoji_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/spacing_small"
             android:textSize="@dimen/text_size"/>
 
-        <androidx.emoji.widget.EmojiAppCompatEditText
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/emoji_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/spacing_small"
             android:textSize="@dimen/text_size"/>
 
-        <androidx.emoji.widget.EmojiAppCompatButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/emoji_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
