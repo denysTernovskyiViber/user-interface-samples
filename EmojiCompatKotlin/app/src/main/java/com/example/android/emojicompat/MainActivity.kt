@@ -46,17 +46,6 @@ class MainActivity : AppCompatActivity() {
         // EditText variant provided by EmojiCompat library
         val emojiEditText: TextView = findViewById(R.id.emoji_edit_text)
         emojiEditText.text = getString(R.string.emoji_edit_text, EMOJI)
-
-        // Button variant provided by EmojiCompat library
-        val emojiButton: TextView = findViewById(R.id.emoji_button)
-        emojiButton.text = getString(R.string.emoji_button, EMOJI)
-
-        // Regular TextView without EmojiCompat support; you have to manually process the text
-        val regularTextView: TextView = findViewById(R.id.regular_text_view)
-
-        // Custom TextView
-        val customTextView: TextView = findViewById(R.id.emoji_custom_text_view)
-        customTextView.text = getString(R.string.custom_text_view, EMOJI)
     }
 
 }
